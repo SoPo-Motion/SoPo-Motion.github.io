@@ -1,3 +1,13 @@
+<style>
+  .tldr {
+    text-align: left;
+    font-size: 0.9em;          /* 比正文略大，温和突出 */
+    color: #33333389;            /* 深灰色，稳重且专业 */
+    font-style: italic;        /* 斜体正文，区分正文 */
+  }
+</style>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +64,9 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization</h1>
             <div class="is-size-5 publication-authors">
+              <p class="tldr" style="max-width: 85%; margin: 0 auto;">
+                <strong>TL;DR:</strong> We propose SoPo, a semi-online preference optimization method, combining the strengths of online and offline direct preference optimization to overcome their individual shortcomings, delivering enhanced motion generation quality and preference alignment.
+              </p>
               <!-- Paper authors -->            
                <!-- 
               <span class="author-block">
@@ -74,7 +87,7 @@
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://sopo-motion.github.io/" target="_blank"
+                        <a href="./static/pdfs/SoPo__Text_to_Motion_Generation_Using_Semi_Online_Preference_Optimization.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -85,7 +98,7 @@
 
                     <!-- Supplementary PDF link -->
                     <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      <a href="./static/pdfs/SoPo__Text_to_Motion_Generation_Using_Semi_Online_Preference_Optimization_Supp.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -93,26 +106,7 @@
                       <span>Supplementary</span>
                     </a>
                   </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://sopo-motion.github.io/" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://sopo-motion.github.io/" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+                  <!-- End paper abstract -->
                 </a>
               </span>
             </div>
@@ -123,6 +117,18 @@
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Toy Example </h2>
+      <img style="width: 100%; height: auto; display: block; margin: 0 auto;" src="static/images/toy.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-left">
+        <strong>Comparison of offline, online DPO, and our SoPo on synthetic data. </strong>Offline DPO suffers from mining unpreferred motions with high probability, and online DPO is limited by biased sampling. Our SoPo utilizes the dynamic unpreferred motions and preferred motions from unbiased offline dataset, overcoming their advantage. Here, the blue region is the distribution of generative model.
+      </h2>
+      <br>
+    </div>
+  </div>
+</section>
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -131,6 +137,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
+          </p>
           <p>
             Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using ``semi-online” data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other’s limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25% (vs e.g. 0.76% of MoDiPO) on the MLD model, 2.91% (vs e.g. 0.66% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.
           </p>
@@ -141,27 +148,63 @@
 </section>
 <!-- End paper abstract -->
 
+<section class="hero teaser" style="margin-top: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Experiment Results </h2>
+      <br>
+      <h2 class="subtitle has-text-left">
+        <strong>Quantitative results of preference alignment methods for text-to-motion generation on the HumanML3D test set.</strong>
+      </h2>
+      <img style="width: 100%; height: auto; display: block; margin: 0 auto;" src="static/images/t1.png" alt="MY ALT TEXT"/>
+      
+      <br>
+
+      <h2 class="subtitle has-text-left">
+        <strong>Quantitative comparison of state-of-the-art text-to-motion generation on the HumanML3D test set.</strong>
+      </h2>
+      <img style="width: 100%; height: auto; display: block; margin: 0 auto;" src="static/images/t2.png" alt="MY ALT TEXT"/>
+
+      <br>
+
+      <h2 class="subtitle has-text-left">
+        <strong>Quantitative comparison of state-of-the-art text-to-motion generation on the KIT-ML test set.</strong>
+      </h2>
+      <img style="width: 60%; height: auto; display: block; margin: 0 auto;" src="static/images/t3.png" alt="MY ALT TEXT"/>
+
+      <br>
+
+      <h2 class="subtitle has-text-left">
+        <strong>Ablation studies on the threshold $\tau$ and the number of generated motion.</strong>
+      </h2>
+      <img style="width: 60%; height: auto; display: block; margin: 0 auto;" src="static/images/t4.png" alt="MY ALT TEXT"/>
+    </div>
+  </div>
+</section>
 
 <!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Visual results on HumanML3D dataset</h2>
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/vis.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual results on HumanML3D dataset. We integrate our SoPo into MLD. Here, the red text denotes descriptions inconsistent with the generated motion.
+        <img src="static/images/vis.png" alt="MY ALT TEXT"/ style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+        <h2 class="subtitle has-text-centered" style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+          <strong>Visual results on HumanML3D dataset. We integrate our SoPo into MLD.</strong> Here, the red text denotes descriptions inconsistent with the generated motion.
         </h2>
       </div>
+            <br>
+
+            <br>
+
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/demo01.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual results on HumanML3D dataset. We integrate our SoPo into MDM and MLD, respectively. Here, the red text denotes descriptions inconsistent with the generated motion.
+        <img src="static/images/demo01.png" alt="MY ALT TEXT"/ style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+        <h2 class="subtitle has-text-centered" style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+          <strong>Visual results on HumanML3D dataset. We integrate our SoPo into MDM and MLD, respectively.</strong> Here, the red text denotes descriptions inconsistent with the generated motion.
         </h2>
       </div>
-  </div>
 </div>
 </div>
 </section>
@@ -169,9 +212,9 @@
 
 
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
       <h2 class="title is-3">Visualizations</h2>
       <div class="video-list">
         <div class="item item-video1">
@@ -238,37 +281,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-<!--BibTex citation -->
-<!--  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section>-->
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <!-- Statcounter tracking code -->
   
